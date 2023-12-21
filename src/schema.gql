@@ -1,0 +1,51 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type UserDTO {
+  createdAt: DateTime
+  updatedAt: DateTime
+  userId: Int!
+  email: String!
+  names: String!
+  lastNames: String!
+  password: String
+  stateCode: Int!
+  documentNumber: String
+  documentType: String
+  phone: Int
+  profilePicture: String
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type Query {
+  getAllUsers: [UserDTO!]!
+  getUserById(userId: Int!): UserDTO!
+}
+
+type Mutation {
+  createUser(object: CreateUserDTO!): UserDTO!
+  updateUser(object: UpdateUserDTO!): UserDTO!
+  deleteUser(object: UpdateUserDTO!): UserDTO!
+}
+
+input CreateUserDTO {
+  email: String!
+  names: String!
+  lastNames: String!
+  password: String!
+  stateCode: Float = 1
+}
+
+input UpdateUserDTO {
+  userCode: Int!
+  email: String!
+  names: String
+  lastNames: String
+  password: String
+  stateCode: Float
+}
